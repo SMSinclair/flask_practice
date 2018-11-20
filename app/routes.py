@@ -4,13 +4,6 @@ from sqlite3 import Error
 from flask import jsonify, request
 
 
-def dict_factory(cursor, row):
-    d = {}
-    for idx, col in enumerate(cursor.description):
-        d[col[0]] = row[idx]
-    return d
-
-
 def create_connection(database):
     try:
         conn = sq3.connect(database)
